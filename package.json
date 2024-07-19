@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Ethanc9.github.io/ethanc9.github.io/",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
