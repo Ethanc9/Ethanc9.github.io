@@ -1,0 +1,16 @@
+.icons-container {
+    display: flex;
+    justify-content: flex-end; /* Align items horizontally to the right */
+    align-items: flex-start; /* Align items vertically to the top */
+    align-items: center; /* Align items vertically in the center */
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff; /* Example background color */
+    z-index: 1000; /* Ensures navbar is above other content */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: Adds a subtle shadow for depth */
+  }
