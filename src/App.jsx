@@ -1,10 +1,19 @@
 import React from 'react';
-import Navbar from './components/navbar/navbar'; // Adjust the import path as necessary
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from './components/navbar/navbar'; 
+import About from './components/about/about';
+import './styles.css';
+
 
 export default function App() {
   return (
     <>
-      <Navbar />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Navbar />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </Router>
     </>
   );
 }

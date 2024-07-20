@@ -1,47 +1,31 @@
 import React from 'react';
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import Logo from '../logo/logo';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
-function Logo({ logo, size, color }) {
-  const iconSize = size.endsWith('%') ? window.innerWidth * (parseInt(size, 10) / 100) : size;
-  
-  const handleClick = () => {
-    switch (logo) {
-      case 'LinkedIn':
-        window.open('https://www.linkedin.com/in/ethan-canton9/');
-        break;
-      case 'Github':
-        window.open('https://github.com/Ethanc9');
-        break;
-      default:
-        console.log("Unknown logo clicked");
-    }
-  };
 
-  const renderIcon = () => {
-    const icon = () => {
-      switch (logo) {
-        case 'LinkedIn':
-          return <FaLinkedin size={iconSize} color={color} />;
-        case 'Github':
-          return <FaGithub size={iconSize} color={color} />;
-        default:
-          return null;
-      }
-    };
-
-    return (
-      <button onClick={handleClick} style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>
-        {icon()}
-      </button>
-    );
-  };
-
+export default function Navbar() {
   return (
-    <div className="logo" aria-label={logo}>
-      {renderIcon()}
-    </div>
+    <header className="navbar">
+      <div>
+        <div className="navbar-text">
+          <Link to="/about">About</Link>
+          <div className="resume">
+              <a href="https://drive.google.com/file/d/1qV8VWKUGHGe_jFmHnvlp0NwS4pfef8EO/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a>
+          </div>
+        </div>
+        <div className="icons-container">
+          <Logo 
+            logo="LinkedIn"
+            size="50"
+            color="#000080" 
+          />
+          <Logo 
+            logo="Github"
+            size="50"
+            color="#000080" 
+          />
+        </div>
+      </div>
+    </header>
   );
 }
-
-export default Logo;
-

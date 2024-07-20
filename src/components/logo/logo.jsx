@@ -1,21 +1,35 @@
 import React from 'react';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
+
 function Logo({ logo, size, color }) {
   const iconSize = size.endsWith('%') ? window.innerWidth * (parseInt(size, 10) / 100) : size;
   
   const handleClick = () => {
+    let url;
     switch (logo) {
       case 'LinkedIn':
-        window.open('https://www.linkedin.com/in/ethan-canton9/');
+        url = 'https://www.linkedin.com/in/ethan-canton9/';
         break;
       case 'Github':
-        window.open('https://github.com/Ethanc9');
+        url = 'https://github.com/Ethanc9';
         break;
       default:
         console.log("Unknown logo clicked");
+        return; 
+    }
+
+    // Attempt to open the URL in a new window
+    const newWindow = window.open(url, '_blank');
+
+    // Check if the new window was successfully opened
+    if (!newWindow) {
+      alert("It looks like your browser is blocking pop-ups. Please disable your pop-up blocker and try again.");
+    } else {
+      newWindow.focus();
     }
   };
+
 
   const renderIcon = () => {
     const icon = () => {
